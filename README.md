@@ -2,15 +2,12 @@
 
 A modern, aesthetic **student registration form** built with **HTML, CSS and JavaScript** featuring:
 
-- 🔁 **Dark / Light (Crimson) Theme Toggle**
+- 🔁 **Dark / Light Theme Toggle**
 - 🧊 **Glassmorphism card design**
 - ✅ Form validation with required fields
 - 📄 **Clean result page** showing submitted details
 ---
 ## ✨ Features
-
-- **Crimson Theme**  
-  Elegant red/crimson gradient with soft glass effect.
 
 - **Dark & Light Modes**  
   Toggle button switches between dark and light crimson styles.
