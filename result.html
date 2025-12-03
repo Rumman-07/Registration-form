@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Submission Preview</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main{min-height:80vh;display:flex;align-items:center;justify-content:center;padding:28px}
+    .preview{width:100%;max-width:760px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+    .row{display:flex;justify-content:space-between;padding:12px 6px;border-bottom:1px dashed rgba(255,255,255,0.02)}
+    .label{color:var(--muted);font-size:13px}
+    .val{font-weight:700}
+    .controls{display:flex;gap:10px;justify-content:flex-end;margin-top:16px}
+  </style>
+</head>
+<body>
+  <header class="site-header" style="padding:16px 24px">
+    <div class="brand"><div style="font-weight:700">Application Form</div></div>
+  </header>
+
+  <main>
+    <section class="preview" aria-live="polite">
+      <h2>Submission Preview</h2>
+      <div id="previewArea"></div>
+
+      <div class="controls">
+        <button onclick="window.location.href='index.html'" class="btn ghost">Edit</button>
+        <button id="printBtn" class="btn primary">Print</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // load data
+    try{
+      const raw = sessionStorage.getItem('registrationResult');
+      const area = document.getElementById('previewArea');
+      if(!raw){ area.innerHTML='<div style="padding:12px;color:var(--muted)">No submission found. Please fill the form first.</div>'; }
+      else {
+        const d = JSON.parse(raw);
+        const fields = [
+          ['Full name', d.fullname],
+          ['Email', d.email],
+          ['Phone', d.phone],
+          ['DOB', d.dob],
+          ['Course', d.course],
+          ['Address', d.address],
+          ['Bio', d.bio]
+        ];
+        area.innerHTML = fields.map(f=>`<div class="row"><div class="label">${f[0]}</div><div class="val">${f[1]||''}</div></div>`).join('');
+      }
+    }catch(e){ console.error(e); }
+    document.getElementById('printBtn').addEventListener('click', ()=> window.print());
+  </script>
+</body>
+</html>
