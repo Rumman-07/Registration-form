@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Course Registration Form</title>
+
+  <!-- Apply saved theme early -->
+  <script>
+    (function(){
+      try{
+        const t = localStorage.getItem('site-theme') ?? 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e){}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle" aria-pressed="false" title="Toggle theme">🌗</button>
+
+  <main class="page">
+    <section class="card form-card" aria-labelledby="formTitle">
+      <h1 id="formTitle">Registration Form</h1>
+      <p class="subtitle">Quick registration — beautiful, accessible, and responsive.</p>
+
+      <form id="registrationForm" novalidate>
+        <div class="grid-2">
+          <label>
+            <span>Full Name *</span>
+            <input type="text" id="fullName" name="fullName" placeholder="John Doe" required>
+            <small class="error" id="nameError"></small>
+          </label>
+
+          <label>
+            <span>Email *</span>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            <small class="error" id="emailError"></small>
+          </label>
+        </div>
+
+        <div class="grid-2">
+          <label>
+            <span>Phone * (min 10 digits)</span>
+            <input type="tel" id="phone" name="phone" placeholder="0123456789" required>
+            <small class="error" id="phoneError"></small>
+          </label>
+
+          <label>
+            <span>DOB * (DD/MM/YYYY)</span>
+            <input type="text" id="dob" name="dob" placeholder="DD/MM/YYYY" required>
+            <small class="error" id="dobError"></small>
+          </label>
+        </div>
+
+        <label>
+          <span>Address * (min 8 chars)</span>
+          <textarea id="address" name="address" placeholder="Street, City, Country" required></textarea>
+          <small class="error" id="addressError"></small>
+        </label>
+
+        <div class="grid-2">
+          <label>
+            <span>Select Course *</span>
+            <select id="course" name="course" required>
+              <option value="">— select a course —</option>
+              <option>Cyber Security</option>
+              <option>Cloud Computing</option>
+              <option>Machine Learning</option>
+              <option>Trading</option>
+              <option>Full Stack</option>
+              <option>Editing</option>
+            </select>
+            <small class="error" id="courseError"></small>
+          </label>
+
+          <label>
+            <span>Bio * (min 10 chars)</span>
+            <textarea id="bio" name="bio" placeholder="Tell us a bit about yourself..." required></textarea>
+            <small class="error" id="bioError"></small>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit" class="btn primary">Submit Registration</button>
+          <button type="button" id="resetBtn" class="btn ghost">Reset</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- subtle watermark -->
+  <div class="watermark">Rumman-07</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
